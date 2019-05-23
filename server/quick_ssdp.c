@@ -209,7 +209,7 @@ static void handle_mcast() {
     }
     saddr.sin_family = AF_INET;
 #ifdef __APPLE__
-    saddr.sin_addr.s_addr = INADDR_ANY;
+    saddr.sin_addr.s_addr = inet_addr("239.255.255.250");//INADDR_ANY;
 #else
     saddr.sin_addr.s_addr = inet_addr("239.255.255.250");
 #endif

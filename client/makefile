@@ -1,4 +1,4 @@
-CC=$(TARGET)g++
+CC?=$(TARGET)g++
 
 .PHONY: clean
 .DEFAULT_GOAL=dialclient
@@ -8,7 +8,7 @@ OBJS := main.cpp DialServer.cpp DialDiscovery.cpp DialConformance.cpp DialClient
 
 # You may not need all these libraries.  This example uses a build of curl that needs crypto, ssl, cares, and zlib
 dialclient: $(OBJS) ${includes}
-	$(CC) -Wall -Werror -g $(OBJS) $(INCLUDES) $(LDFLAGS) -ldl -lpthread -lcurl -lz -lcrypto -lssl -o dialclient
+	$(CC) -Wall -Werror -g $(OBJS) $(INCLUDES) $(LDFLAGS) -ldl -lpthread -lcurl -lz -L /usr/local/opt/openssl/lib/ -lcrypto -lssl -o dialclient
 
 dialclient_debug: $(OBJS) ${includes}
 	$(CC) -DDEBUG -Wall -Werror -g $(OBJS) $(INCLUDES) $(LDFLAGS) -ldl -lpthread -lcurl -lz -lcrypto -lssl -lcares -o dialclient_debug

@@ -1,4 +1,4 @@
-CC=$(TARGET)gcc
+CC?=$(TARGET)gcc
 
 .PHONY: clean
 .DEFAULT_GOAL=all
@@ -20,7 +20,7 @@ nf_callbacks_lib: nf_callbacks.o
 
 
 dialserver: nf_callbacks_lib $(OBJS)
-	$(CC) -Wall -Werror -Wl,-rpath,. -g $(OBJS) -ldl -lpthread -lrt -L. -lnfCallbacks -o dialserver
+	$(CC) -Wall -Werror -Wl,-rpath,. -g $(OBJS) -ldl -lpthread -L. -lnfCallbacks -o dialserver
 
 test:
 	make -C tests

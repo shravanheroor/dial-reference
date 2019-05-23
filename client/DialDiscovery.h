@@ -87,7 +87,7 @@ private:
     ServerMap mServerMap;
 
     static DialDiscovery* sDiscovery;
-    static const int RESPONSE_TIMEOUT = 5;
+    static const int RESPONSE_TIMEOUT = 15;
 };
 
 #endif // DIALDISCOVERY_H
